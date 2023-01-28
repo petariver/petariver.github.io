@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>xx</title>
+		<meta charset="utf-8">
+		<meta content="x" name="description">
+		<meta content="notranslate" name="google">
+		<meta content="yes" name="mobile-web-app-capable">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="#FFFFFF" name="theme-color">
+		<style>
+			body {font-family:helvetica,arial;margin:0;padding:0;background-color:#8BB168}
+			fieldset {border:none;}
+			h1 {margin:1vh 0 10px 1vh;padding:0;color:#FFFFFF;font-size:3vh;}
+			div, main {width:1024px;margin:0 auto;}
+			main {display:grid;grid-template-columns:20% auto;height:90vh}
+			dl {margin:0;margin:1vh 1vh 2vh 1vh;background-color:#DEE3CD;color:#30413B}
+			dl dt {padding:1vh;cursor:pointer}
+			svg {
+				background-position-x:55%;background-size:50%;background-image:url('map1.jpg');background-size:contain;background-repeat:no-repeat;
+				width:100%;height:90vh
+			}
+			polygon { stroke-linejoin:round; fill:transparent; stroke:#0063E2; stroke-width:5; }
+			@media (max-width: 1000px) {
+				div, main {width:90vw;}
+				header {padding:1vh;font-size:10vh;}
+				aside {display:none}
+				main {max-width:96vw;height:auto;display:block;margin:0}
+				svg {width:90vw;height:50vh;}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			<header>
+				<h1>The RIVER</h1>
+			</header>
+			<main>
+				<aside>
+					<dl id="clusters">
+					</dl>
+					<dl id="rows">
+						<dt>D1</dt>
+						<dt>20</dt>
+					</dl>
+				</aside>
+				<svg viewbox="0 0 1000 1000">
+					<!--<polygon points="140,585 572,585" />-->
+				</svg>
+			</main>
+		</div>
+	</body>
+</html>
+<script>
+var river = {
+	"A":{"cluster":"Amazone","row":[1,2,3,5,6,7]},
+	"B":{"cluster":"West Fontana","row":[1,2,3,5,6,7]},
+	"C":{"cluster":"East Fontana","row":[1,2,3,5,6]},
+	"D":{"cluster":"West Colorado","row":[1,2,3,5,6,7,8,9]},
+	"E":{"cluster":"East Colorado","row":[1,2,3,5,6,7,8,10,11,12]},
+	"Ruko ":{"cluster":"","row":['RA','RB','RC']},
+
+}, opt = "";
+Object.keys(river).forEach(blok=>{
+	opt += "<dt data-val=\""+blok.toLowerCase().trim()+"\">"+blok+". "+river[blok]['cluster']+"</dt>";
+});
+document.querySelector('#clusters').innerHTML = opt;
+console.log(opt);
+</script>
